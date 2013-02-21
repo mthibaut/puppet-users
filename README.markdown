@@ -27,7 +27,7 @@ Setup
                 ensure: present
                 uid: 1000
                 gid: staff
-		groups: - wheel
+                groups: - wheel
                 comment: John Doe
                 managehome: true
 
