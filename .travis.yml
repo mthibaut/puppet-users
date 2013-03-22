@@ -7,14 +7,10 @@ rvm:
   - ree
   - ruby-head
 env:
-  - PUPPET_VERSION=2.6.12
-  - PUPPET_VERSION=2.7.6
-  - PUPPET_VERSION=2.7.9
+  - PUPPET_GEM_VERSION=2.6.12
+  - PUPPET_GEM_VERSION=2.7.9
   - PUPPET_GEM_VERSION="~> 3.0"
 matrix:
-  exclude:
-    - rvm: 1.9.2
-      env: PUPPET_VERSION=2.6.12
   allow_failures:
     - rvm: ruby-head
 notifications:
