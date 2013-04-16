@@ -1,5 +1,9 @@
 #!/usr/bin/env rspec
+require 'pp'
 require 'spec_helper'
+
+Puppet::Util::Log.level = :debug
+Puppet::Util::Log.newdestination(:console)
 
 describe 'users', :type => :define do
 
@@ -15,5 +19,18 @@ describe 'users', :type => :define do
     it { should contain_users('bar') }
     it { should contain_users__setup('foo').with_hash({"foo"=>{"uid"=>"123"}}) }
     it { should contain_user('foo').with_uid(123) }
+  end
+
+  describe 'hiera specified simple user hash' do
+    let :title do
+      'bar'
+    end
+
+    let(:hiera_data) do
+      { 'users_bar' => {'foo' => { 'uid' => '123' } } }
+    end
+
+    it { should contain_users('bar') }
+    it { should contain_users__setup('foo').with_hash({"foo"=>{"uid"=>"123"}}) }
   end
 end

@@ -1,14 +1,15 @@
-source :rubygems
+source 'http://rubygems.org'
 
 group :development, :test do
   gem 'puppetlabs_spec_helper', :require => false
+  gem 'hiera-puppet-helper', '>1.0.0'
 end
 
 if puppetversion = ENV['PUPPET_GEM_VERSION']
   gem 'puppet', puppetversion, :require => false
-  if puppetversion < '3.0.0'
-    gem 'hiera-puppet', :require => true
-  end
 else
   gem 'puppet', :require => false
 end
+
+#gem 'hiera-puppet'
+#gem 'hiera', '~>1.1.2'
