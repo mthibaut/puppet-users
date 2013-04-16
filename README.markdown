@@ -1,7 +1,7 @@
 users
 ====
 
-[![Build Status](https://travis-ci.org/mthibaut/puppet-users?branch=master)](https://travis-ci.org/mthibaut/puppet-users)
+[![Build Status](https://travis-ci.org/mthibaut/puppet-users.png?branch=master)](https://travis-ci.org/mthibaut/puppet-users)
 
 
 Overview
