@@ -1,9 +1,5 @@
 #!/usr/bin/env rspec
-require 'pp'
 require 'spec_helper'
-
-Puppet::Util::Log.level = :debug
-Puppet::Util::Log.newdestination(:console)
 
 describe 'users', :type => :define do
 

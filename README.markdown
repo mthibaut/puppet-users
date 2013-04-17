@@ -20,9 +20,10 @@ Setup
 
 ### Configure your users in hiera
 
-    common.yaml
+        common.yaml:
+
         ---
-    	users_sysadmins:
+        users_sysadmins:
             john:
                 ensure: present
                 uid: 1000
@@ -33,7 +34,8 @@ Setup
 
 ### Include users in your manifest
 
-    site.pp
+        site.pp:
+
         node /default/ {
             users { sysadmins: }
         }
@@ -47,23 +49,19 @@ below.
 
 The defined type *users* can be called with two arguments:
 
-    **match**
-        Defaults to 'all'. Can be 'all', 'any' (sysonym for 'all'), or 'first'.
+###`match`
 
-        If 'first' is used, then only the first match in your hiera hierarchy
-        will be used. If you specify 'all' then all matching hashes will
-        be be used. This corresponds directly to the respective 'hiera' and
-        'hiera_hash' function calls.
+Defaults to 'all'. Can be 'all', 'any' (sysonym for 'all'), or 'first'.
 
-    **hash**
-	Defaults to undef. Uses the given hash rather than the result of
-        the hiera lookup.
+If 'first' is used, then only the first match in your hiera hierarchy will be used. If you specify 'all' then all matching hashes will be be used. This corresponds directly to the respective 'hiera' and 'hiera_hash' function calls.
+
+###`hash`
+
+Defaults to undef. Uses the given hash rather than the result of the hiera lookup.
 
 Dependencies
 ------------
 
-  * In puppet 3.0.0, hiera became a standard function call so it is included by
-    default in your puppet installation. Before 3.0.0, you must install the
-    hiera-puppet module.
+* In puppet 3.0.0, hiera became a standard function call so it is included by default in your puppet installation. Before 3.0.0, you must install the hiera-puppet module.
 
-  * stdlib
+* stdlib
