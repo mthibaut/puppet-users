@@ -59,6 +59,17 @@ If 'first' is used, then only the first match in your hiera hierarchy will be us
 
 Defaults to undef. Uses the given hash rather than the result of the hiera lookup.
 
+Troubleshooting
+---------------
+
+Before blaming me, check if your hiera configuration is working correctly. For instance, you can use this to check if puppet is seeing your hiera data correctly:
+
+        node /mynode/ {
+                $mytest = hiera("users_sysadmins", "not found")
+                notify { "$mytest": }
+        }
+
+
 Dependencies
 ------------
 
