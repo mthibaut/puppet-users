@@ -1,4 +1,12 @@
 define users::setup($hash) {
+
+	# we need to manage the home dir if the user wants keys
+	if $hash[$name]['ssh_keys'] {
+		$managehome = true
+	} else {
+		$managehome = $hash[$name]['managehome']
+	}
+
 	if(!defined(User[$name])) {
 	    user { $name :
                 allowdupe => $hash[$name]['allowdupe'],
@@ -30,5 +38,14 @@ define users::setup($hash) {
                 system => $hash[$name]['system'],
                 uid => $hash[$name]['uid'],
 	    }
+	}
+	
+	if $hash[$name]['ssh_keys'] and $hash[$name]['ensure'] == 'present' {
+		$keys = keys($hash[$name]['ssh_keys'])
+		users::ssh_key { $keys:
+			  hash => $hash[$name]['ssh_keys'],
+			  user => $name
+				
+		}
 	}
 }
