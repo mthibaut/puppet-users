@@ -31,11 +31,12 @@ Setup
                 groups: - wheel
                 comment: John Doe
                 managehome: true
-		ssh_authorized_keys:
-			mykey:
-				type: 'ssh-rsa'
-				key:  'mykeydata=='
+                ssh_authorized_keys:
+                        mykey:
+                               	type: 'ssh-rsa'
+                               	key:  'mykeydata=='
 
+All parameters to the standard types 'user' and 'ssh_authorized_key' can be used.
 
 ### Include users in your manifest
 
