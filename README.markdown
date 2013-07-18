@@ -31,6 +31,11 @@ Setup
                 groups: - wheel
                 comment: John Doe
                 managehome: true
+		ssh_authorized_keys:
+			mykey:
+				type: 'ssh-rsa'
+				key:  'mykeydata=='
+
 
 ### Include users in your manifest
 

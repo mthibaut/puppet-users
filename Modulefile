@@ -1,5 +1,5 @@
 name    'mthibaut-users'
-version '1.0.10'
+version '1.0.11'
 author 'mthibaut'
 license 'Apache License, Version 2.0'
 summary 'Manage users using hiera data.'
