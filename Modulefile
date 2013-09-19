@@ -7,4 +7,4 @@ description 'Instead of using a seperate resource type for every user, this allo
 project_page 'https://github.com/mthibaut/puppet-users'
 
 ## Add dependencies, if any:
-dependency 'puppetlabs/stdlib'
+dependency 'puppetlabs/stdlib', '>= 3.0.0'
