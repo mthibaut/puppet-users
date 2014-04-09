@@ -58,9 +58,10 @@ define users::setup($hash) {
       $_sshkey = $hash[$name]['ssh_authorized_keys']
       if(is_hash($_sshkey)) {
         $_sshkeys = keys($_sshkey)
-        users::ssh_authorized_keys { $_sshkeys:
+        users::ssh_authorized_keys { "$name-$_sshkeys":
           hash => $_sshkey,
           user => $name,
+          h_key => $_sshkeys,
           before => File["$home/.ssh/authorized_keys"],
         }
       } else {
