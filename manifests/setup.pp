@@ -56,15 +56,7 @@ define users::setup($hash) {
 
     if ($hash[$name]['ssh_authorized_keys']) {
       $_sshkey = $hash[$name]['ssh_authorized_keys']
-      if(is_hash($_sshkey)) {
-        $_sshkeys = keys($_sshkey)
-        users::ssh_authorized_keys { "$name-$_sshkeys":
-          hash => $_sshkey,
-          user => $name,
-          h_key => $_sshkeys,
-          before => File["$home/.ssh/authorized_keys"],
-        }
-      } elsif (is_array($_sshkey)) {
+      if (is_array($_sshkey)) {
         each($_sshkey) |$key_hash| {
           if(is_hash($key_hash)) {
             $_sshkeys = keys($key_hash)
@@ -79,7 +71,7 @@ define users::setup($hash) {
           }
         }
       } else {
-          notify { "user ssh key data for ${name} must be in hash or array form": }
+          notify { "user ssh key data for ${name} must be in array form": }
       }
     }
   }
