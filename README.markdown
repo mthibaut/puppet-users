@@ -1,9 +1,6 @@
 users
 ====
 
-[![Build Status](https://travis-ci.org/mthibaut/puppet-users.png?branch=master)](https://travis-ci.org/mthibaut/puppet-users)
-
-
 Overview
 --------
 
@@ -32,9 +29,12 @@ Setup
                 comment: John Doe
                 managehome: true
                 ssh_authorized_keys:
-                        mykey:
-                               	type: 'ssh-rsa'
-                               	key:  'mykeydata=='
+                        - mykey:
+                                type: 'ssh-rsa'
+                                key:  'mykeydata=='
+                        - mykey2:
+                                type: 'ssh-rsa'
+                                key:  'mykeydata=='
 
 All parameters to the standard types 'user' and 'ssh_authorized_key' can be used.
 
@@ -82,3 +82,5 @@ Dependencies
 * In puppet 3.0.0, hiera became a standard function call so it is included by default in your puppet installation. Before 3.0.0, you must install the hiera-puppet module.
 
 * stdlib
+
+* Need to pass `--parser future` while applying. (Use of `each`)
