@@ -1,4 +1,12 @@
 define users::setup($hash) {
+
+	# we need to manage the home dir if the user wants keys
+	if $hash[$name]['ssh_keys'] {
+		$managehome = true
+	} else {
+		$managehome = $hash[$name]['managehome']
+	}
+
 	if(!defined(User[$name])) {
 	    user { $name :
                 allowdupe => $hash[$name]['allowdupe'],
@@ -44,5 +52,14 @@ define users::setup($hash) {
 		    notify { "user ssh key data for ${name} must be in hash form": }
 		}
 	    }
+	}
+	
+	if $hash[$name]['ssh_keys'] and $hash[$name]['ensure'] == 'present' {
+		$keys = keys($hash[$name]['ssh_keys'])
+		users::ssh_key { $keys:
+			  hash => $hash[$name]['ssh_keys'],
+			  user => $name
+				
+		}
 	}
 }
