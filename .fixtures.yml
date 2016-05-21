@@ -1,5 +1,6 @@
 fixtures:
-  repositories:
-    "stdlib": "http://github.com/puppetlabs/puppetlabs-stdlib.git"
+  # use the forge modules so we can easily pin to a specific version
+  forge_modules:
+    stdlib: "puppetlabs/stdlib"
   symlinks:
     users: "#{source_dir}"

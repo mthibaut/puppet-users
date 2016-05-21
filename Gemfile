@@ -1,12 +1,11 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-group :development, :test do
-  gem 'puppetlabs_spec_helper', :require => false
-  gem 'hiera-puppet-helper', '>1.0.0'
-end
-
-if puppetversion = ENV['PUPPET_GEM_VERSION']
-  gem 'puppet', puppetversion, :require => false
-else
-  gem 'puppet', :require => false
-end
+puppetversion = ENV.key?('PUPPET_VERSION') ? "#{ENV['PUPPET_VERSION']}" : ['>= 3.3']
+gem 'puppet', puppetversion
+gem 'puppetlabs_spec_helper', '>= 0.8.2'
+gem 'puppet-lint', '>= 1.0.0'
+gem 'facter', '>= 1.7.0'
+gem 'rspec'
+gem 'rspec-puppet'
+gem 'rspec-puppet-facts'
+gem 'metadata-json-lint'

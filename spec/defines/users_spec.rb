@@ -22,10 +22,6 @@ describe 'users', :type => :define do
       'bar'
     end
 
-    let(:hiera_data) do
-      { 'users_bar' => {'foo' => { 'uid' => '123' } } }
-    end
-
     it { should contain_users('bar') }
     it { should contain_users__setup('foo').with_hash({"foo"=>{"uid"=>"123"}}) }
   end

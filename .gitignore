@@ -1,3 +1,6 @@
+*.swp
+.ruby-version
+.ruby-gemset
 pkg/
 metadata.json
 Gemfile.lock
