@@ -1,6 +1,14 @@
 ---
 
-users_bar:
+users_baz:
+  foo:
+    uid: 123
+
+users_test:
+  foo:
+    uid: 123
+
+users_test2:
   foo:
     uid: 123
 
