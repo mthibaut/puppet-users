@@ -1,0 +1,15 @@
+---
+
+users_baz:
+  foo:
+    uid: 123
+
+users_test:
+  foo:
+    uid: 123
+
+users_test2:
+  foo:
+    uid: 123
+
+# vim: ts=2 sw=2 sts=2 et ai :
